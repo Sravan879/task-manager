@@ -2,9 +2,10 @@
 
 This is a simple RESTful API for a task management system, built with Java and Spring Boot.
 It allows users to perform full CRUD (Create, Read, Update, Delete) operations on tasks.
+
 ------------------------------------------------------------
 
-How to Run
+🚀 How to Run
 
 1. Prerequisites:
    - Java 17 (or newer)
@@ -19,7 +20,7 @@ How to Run
 
 ------------------------------------------------------------
 
-API Endpoints (Testing)
+🧪 API Endpoints (Testing)
 
 You can test the API using Invoke-WebRequest in PowerShell, cURL, or an API tool like Postman.
 
@@ -61,21 +62,26 @@ You can test the API using Invoke-WebRequest in PowerShell, cURL, or an API tool
 
 ------------------------------------------------------------
 
-Design Decisions & Assumptions
+📐 Design Decisions & Assumptions
 
 Framework:
 - Used Java + Spring Boot as specified. Spring Boot is ideal for building REST APIs quickly with minimal configuration.
+
 Data Storage:
 - Used a ConcurrentHashMap as an in-memory database (TaskRepository). 
   This provides a simple, thread-safe way to store data without a real database.
   It offers fast O(1) lookups by ID.
+
 ID Generation:
 - Used an AtomicLong to generate unique, thread-safe IDs for new tasks.
+
 Error Handling:
 - Implemented a @ControllerAdvice class (GlobalExceptionHandler) to centrally handle validation errors (like a blank title),
   returning a clean JSON error message with a 400 Bad Request status.
+
 Validation:
 - Used the spring-boot-starter-validation dependency to enable @Valid and @NotBlank annotations for simple input validation on the Task model.
+
 Security:
 - Added spring-boot-starter-security to resolve a 403 Forbidden error.
 - A SecurityConfig bean was created to permitAll() all requests and csrf.disable() to allow POST/PUT/PATCH requests from API testing tools.
